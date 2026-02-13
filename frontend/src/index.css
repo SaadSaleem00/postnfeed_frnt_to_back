@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  /* Moving gradient to body to ensure full coverage */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #333;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1rem; /* Add padding for small screens */
+}
+
+/* Page Container (Section) Styling */
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Center the H1 and Form */
+  width: 100%;
+  max-width: 440px;
+  gap: 1.5rem;
+}
+
+/* Heading Styling */
+section h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+  text-align: center;
+}
+
+/* Glassmorphism Form Container */
+section form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 2.5rem;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 20px;
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section form:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.2), 
+    0 10px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Input Fields Styling */
+section form input {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  font-size: 1rem;
+  background-color: #f1f3f5;
+  transition: all 0.25s ease;
+  color: #495057;
+  font-weight: 500;
+}
+
+section form input:focus {
+  outline: none;
+  background-color: #fff;
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+}
+
+section form input::placeholder {
+  color: #adb5bd;
+}
+
+/* File Input specifically */
+section form input[type="file"] {
+  padding: 0.8rem;
+  background: #f8f9fa;
+  cursor: pointer;
+  border: 2px dashed #cbd5e0;
+}
+
+section form input[type="file"]:hover {
+  border-color: #a0aec0;
+  background: #edf2f7;
+}
+
+section form input[type="file"]::file-selector-button {
+  margin-right: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #667eea;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+section form input[type="file"]::file-selector-button:hover {
+  background: #5a67d8;
+}
+
+/* Submit Button Styling */
+section form button {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 12px;
+  background: #2d3748; /* Dark button for contrast against white card */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px -1px rgba(102, 126, 234, 0.4);
+  margin-top: 0.5rem;
+}
+
+section form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(102, 126, 234, 0.5);
+  filter: brightness(1.1);
+}
+
+section form button:active {
+  transform: translateY(1px);
+}
+
+/* ========================================= */
+/* FEED PAGE STYLING (Vertical & Small)      */
+/* ========================================= */
+
+.feed-section {
+  display: flex !important; /* Force flex display */
+  flex-direction: column;
+  justify-content: flex-start; /* Start from top, don't vertically center */
+  align-items: center;
+  gap: 2rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.post-card {
+  width: 100%;
+  max-width: 320px; /* Small width as requested */
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden; /* Ensure images obey border radius */
+}
+
+.post-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+}
+
+.post-card img {
+  width: 100%;
+  height: 200px; /* Constrain height */
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+.post-card p {
+  font-size: 0.9rem;
+  color: #4a5568;
+  font-weight: 600;
+  margin: 0;
+  padding: 0 0.5rem;
+  line-height: 1.4;
+}
